@@ -17,17 +17,17 @@ function calcular(){
     let duracao = inputDuracao.value;
 
 
-    let qtdTotalcarne = carnePP(duracao) * adultos + (carnePP(duracao) / 2 * criancas);
-    let qtdTotalcerveja = cervejaPP(duracao) * adultos;
-    let qtdTotalbebidas = bebidasPP(duracao) * adultos + (bebidasPP(duracao) / 2 * criancas);
+    let qtdTotalCarne = carnePP(duracao) * adultos + (carnePP(duracao) / 2 * criancas);
+    let qtdTotalCerveja = cervejaPP(duracao) * adultos;
+    let qtdTotalBebidas = bebidasPP(duracao) * adultos + (bebidasPP(duracao) / 2 * criancas);
 
 
-    resultado.innerHTML = `<p>${qtdTotalcarne}g de Carne</p>`
-    resultado.innerHTML += `<p>${qtdTotalcerveja}ml de Cerveja</p>`
-    resultado.innerHTML += `<p>${qtdTotalbebidas}ml de Bebidas</p>`
+    resultado.innerHTML = `<p>${qtdTotalCarne  / 1000} kg de Carne</p>`
+    resultado.innerHTML += `<p>${Math.ceil(qtdTotalCerveja / 355)} Latas de Cerveja</p>`
+    resultado.innerHTML += `<p>${Math.ceil(qtdTotalBebidas / 2000)} Garrafas 2L de Refrigerante</p>`
 }
 
- function carnePP (duracao){
+ function carnePP(duracao){
      if (duracao >= 6) {
          return 650;
      } else {
@@ -35,7 +35,7 @@ function calcular(){
      }
  }
 
- function cervejaPP (duracao){
+ function cervejaPP(duracao){
     if (duracao >= 6) {
         return 2000;
     } else {
@@ -43,7 +43,7 @@ function calcular(){
     }
 }
 
-function bebidasPP (duracao){
+function bebidasPP(duracao){
     if (duracao >= 6) {
         return 1500;
     } else {
